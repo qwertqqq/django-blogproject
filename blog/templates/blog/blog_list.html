@@ -1,0 +1,133 @@
+{% extends 'base.html'%}
+{% block title %}木叶知秋的博客{% endblock %}
+
+{% load staticfiles %}
+{% load comment_tags %}
+{% load likes_tags %}
+
+{%block sub_type %}
+	<link rel="stylesheet" href="{% static 'blog/blog.css' %}">
+{% endblock %}
+{% block nav_blog_active %}active{% endblock %}
+{# 内容 #}
+{% block content %}
+	<div class="container">
+	  <div class="row">
+	    <div class="col-xs-12 col-sm-8 col-md-10 col-lg-10">
+		    <div class="panel panel-primary">
+				  <div class="panel-heading">博客列表{% block blog_list_all%}
+				  		<a href="{% url 'blog_list' %}" style="color: #00fff0;">查看全部博客</a>
+				  	{% endblock %}
+				  </div>
+				  <div class="panel-body">
+			    		{% for blog in blogs %}
+				    		<div class="blog">
+				    			<a href="{% url 'blog_detail' blog.pk %}" class="blog-title">{{ blog.title}}</a>
+				    			<div class="blog-info">
+									<span class="glyphicon glyphicon-tags">
+										<a href="{% url 'blogs_with_type' blog.blog_type.pk%}">
+										    {{blog.blog_type}}
+										</a>
+									</span>&nbsp;&nbsp;
+									<span class="glyphicon glyphicon-time">{{blog.created_time|date:"Y-m-d"}}</span>&nbsp;&nbsp;
+									<span class="glyphicon glyphicon-eye-open" aria-hidden="true">
+										{##阅读:##}{{ blog.get_read_num }}
+									</span>&nbsp;&nbsp;
+									<span>评论数：{% get_comment_count blog %}</span>
+									<span>点赞数：{% get_like_count blog %}</span>
+				    			</div>
+								<p class="soujin">{{blog.content|truncatechars:66}}</p>
+				    		</div>
+						{% empty %}
+							<div class="blog">
+								还没有加入博客， 尽请期待！
+							</div>
+						{% endfor%}
+						<p></p>
+		    		 <div class="panel-footer panel-primary">{% block blog_list_title %}共有 {{page_of_blogs.paginator.count}}篇博客 {% endblock %} 
+			    		 <span class="glyphicon glyphicon-leaf" aria-hidden="true">
+			    		 	共有{{page_of_blogs.paginator.num_pages}}页
+			    		 </span>
+			    		 <span class="glyphicon glyphicon-tree-deciduous" aria-hidden="true">
+			    		 	你所在的是第{{ page_of_blogs.number }}页
+			    		 </span>
+			    		 <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
+		    		 </div>
+			 	 </div>
+			</div>
+			<div class="pagination">
+				<ul class="pagination">
+				    <li>
+				    	{% if page_of_blogs.has_previous %}
+					    	<a href="?page={{page_of_blogs.previous_page_number}}" aria-label="Previous">
+					    		<span aria-hidden="true"><span class="glyphicon glyphicon-hand-left" aria-hidden="true" title="上一页"></span></span>
+						    </a>
+				    	{% else %}
+				    		<span aria-hidden="true"><span class="glyphicon glyphicon-hand-left" aria-hidden="true" title="上一页"></span></span>
+				    	{% endif %}
+				      
+				    </li>
+					{% for page_num in page_range %}
+						{% if page_num == page_of_blogs.number %}
+							<li class="active"><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+						{% else %}
+							{% if page_num == '...' %}
+								<li><a>{{ page_num }}</a></li>
+							{% else %}
+								<li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+							{% endif %}
+						{% endif %}
+ 
+						
+					{% endfor %}
+				  
+				    <li>
+				    	{% if page_of_blogs.has_next %}
+				    		<a href="?page={{ page_of_blogs.next_page_number}}" aria-label="Next">
+				    			<span aria-hidden="true"><span class="glyphicon glyphicon-hand-right" aria-hidden="true" title="下一页"></span></span>
+				    		</a>
+				    	{% else %}
+				    		 <span aria-hidden="true"><span class="glyphicon glyphicon-hand-right" aria-hidden="true" title="下一页"></span></span>
+				    	{% endif %}
+				    </li>
+				</ul>
+			</div>	    	
+		</div>
+	    <div class="hidden-xs col-sm-4 col-md-2 clo-lg-2">
+			<div class="panel panel-primary">
+			  <div class="panel-heading">博客分类</div>
+			  <div class="panel-body">
+			    <ul class="blog_types">
+		    		{% for blog_type in blog_types%}
+		    			<li>
+		    				<a href="{% url 'blogs_with_type' blog_type.pk%}">
+							    {{blog_type.type_name}}
+						    	<span class=" icon-color glyphicon glyphicon-tree-conifer" aria-hidden="true">
+							    	{{ blog_type.blog_count }} 
+							    </span>
+							</a>
+		    			</li>
+		    		{% empty %}
+		    		  <li>暂无分类!</li>
+		    		{% endfor %}
+		    	</ul>
+			  </div>
+			</div>
+			<div class="panel panel-primary">
+				<div class="panel-heading">日期归档</div>
+				<div class="panel-body">
+					<ul>
+						{% for blog_date, blog_count in blog_dates.items %}
+							<li>
+								<a href="{% url 'blogs_with_date' blog_date.year blog_date.month %}">{{ blog_date|date:"Y年m月"}}</a>
+								<span class=" icon-color glyphicon glyphicon-heart">{{ blog_count }}</span>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>	    	
+	    </div>		
+	  </div>
+	</div>
+	
+{% endblock%}

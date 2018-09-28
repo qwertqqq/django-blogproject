@@ -1,0 +1,169 @@
+.panel-default {
+    /* border-color: #ddd; */
+    min-width: 200px !important;
+}
+/*导航栏*/
+body {
+ background-color: #f0fbf0 !important;
+ /* 防止出现左右的滚动条 */
+ overflow-x: hidden;
+ margin-top: 6% !important;
+ padding: 0;
+ width: 100%;
+ display:block;
+}
+.wrapper {
+ width: 100%;
+ height: 100px;
+}
+.wrapper .nav {
+ list-style: none;
+ width: auto;
+ height: 100px;
+ padding: 0;
+ margin: 0 auto;
+}
+.wrapper .nav li {
+ width: 25%;
+ height: 50px;
+ float: left;
+ margin-top: 25px;
+}
+.wrapper .nav li a {
+ text-decoration: none;
+ color: #fff;
+ text-align: center;
+ line-height: 50px;
+ display: block;
+ font-size: 20px;
+ font-family: "KaiTi";
+}
+ 
+/* 闪烁的星星 的基本样式 */
+.star {
+ width: 5px;
+ height: 5px;
+ background: #fff;
+ position: absolute;
+ z-index: -1;
+}
+ 
+/* 闪烁动画，改变透明度 */
+@keyframes blink {
+ from {
+ opacity: 0.2;
+ }
+ to {
+ opacity: 1;
+ }
+}
+/*导航栏结束*/
+
+
+/*主体部分*/
+a{ 
+  color: #00ff00;
+  text-decoration:none; 
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+a:hover{
+  -webkit-animation: first 1.5s ease-in-out infinite alternate;
+  -moz-animation: first 1.5s ease-in-out infinite alternate;
+  animation: first 1.5s ease-in-out infinite alternate; 
+}
+p a:hover{
+color:#ff00ff;  
+}
+
+/* 发光 webkit*/
+@-webkit-keyframes first {
+  from {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #FF1177,
+               0 0 70px  #FF1177,
+               0 0 80px  #FF1177,
+               0 0 100px #FF1177,
+               0 0 150px #FF1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff,
+               0 0 10px #fff,
+               0 0 15px #fff,
+               0 0 20px #FF1177,
+               0 0 35px #FF1177,
+               0 0 40px #FF1177,
+               0 0 50px #FF1177,
+               0 0 75px #FF1177;
+  }
+}
+
+/*发光 mozilla*/
+@-moz-keyframes first {
+  from {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #FF1177,
+               0 0 70px  #FF1177,
+               0 0 80px  #FF1177,
+               0 0 100px #FF1177,
+               0 0 150px #FF1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff,
+               0 0 10px #fff,
+               0 0 15px #fff,
+               0 0 20px #FF1177,
+               0 0 35px #FF1177,
+               0 0 40px #FF1177,
+               0 0 50px #FF1177,
+               0 0 75px #FF1177;
+  }
+}
+
+/*发光*/
+@keyframes first {
+  from {
+    text-shadow: 0 0 10px #fff,
+               0 0 20px  #fff,
+               0 0 30px  #fff,
+               0 0 40px  #FF1177,
+               0 0 70px  #FF1177,
+               0 0 80px  #FF1177,
+               0 0 100px #FF1177,
+               0 0 150px #FF1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff,
+               0 0 10px #fff,
+               0 0 15px #fff,
+               0 0 20px #FF1177,
+               0 0 35px #FF1177,
+               0 0 40px #FF1177,
+               0 0 50px #FF1177,
+               0 0 75px #FF1177;
+  }
+}
+/*主体部分结束*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*login and register*/
+div.user-login {
+
+  text-align: center;
+}
+.navbar-color{
+  background: #000;
+  min-height: 200px;
+}
+body{
+  background-size: 100%;
+}

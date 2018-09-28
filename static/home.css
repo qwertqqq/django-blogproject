@@ -1,0 +1,173 @@
+
+
+/*3D旋转特效*/
+.world {
+  -webkit-perspective: 200px;
+          perspective: 200px;
+  width: 0vh;
+  height:0vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.world-left{
+	float: left;
+}
+.world-right{
+	float: right;
+}
+.cube {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  width: 50vh;
+  height: 50vh;
+  position: relative;
+  -webkit-animation: rotator 4.5s linear infinite;
+          animation: rotator 4.5s linear infinite;
+  outline: 0;
+}
+.cube * {
+  background: #ffffff;
+  box-shadow: 0 0 3vh currentColor;
+  -webkit-transition: background 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+  transition: background 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+}
+.cube:hover * {
+  background: currentColor;
+  box-shadow: 0 0 20vh currentColor;
+}
+.cube .cube__front {
+  color: deeppink;
+  -webkit-transform: translateZ(25vh);
+          transform: translateZ(25vh);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 60%;
+}
+.cube .cube__right {
+  color: lightcoral;
+  -webkit-transform: rotateY(90deg) translateZ(25vh);
+          transform: rotateY(90deg) translateZ(25vh);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.cube .cube__left {
+  color: skyblue;
+  -webkit-transform: rotateY(270deg) translateZ(25vh);
+          transform: rotateY(270deg) translateZ(25vh);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.cube .cube__back {
+  color: seagreen;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotateY(180deg) translateZ(25vh);
+          transform: rotateY(180deg) translateZ(25vh);
+}
+.cube .cube__top {
+  color: mediumseagreen;
+  -webkit-transform: rotateX(90deg) translateZ(25vh);
+          transform: rotateX(90deg) translateZ(25vh);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.cube .cube__bottom {
+  color: dodgerblue;
+  -webkit-transform: rotateX(270deg) translateZ(25vh);
+          transform: rotateX(270deg) translateZ(25vh);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@-webkit-keyframes rotator {
+  0% {
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+            transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg) rotateY(360deg);
+            transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+@keyframes rotator {
+  0% {
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+            transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg) rotateY(360deg);
+            transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+/*3D旋转特效 end*/
+
+/*文字扫光*/
+.bg { 
+    background: #fff;
+    width: 100%;
+    height: 300px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+.slideShine {
+    width: 100%;
+    font-family: "微软雅黑";
+    font-size: 60px;
+    text-align: center;
+
+    background: #0cfcef -webkit-linear-gradient(left, #ff0000, #00ff00, #0000ff) 0 0 no-repeat;
+    -webkit-background-size: 80px;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 55, 25, 0.3);
+
+    -webkit-animation: slideShine 6s infinite;
+}
+
+@-webkit-keyframes slideShine {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+/*文字扫光 end*/
+
+.panel-body {
+    width: 600px;
+}
+
+div#blog-min-width{
+	min-width: 200px; 
+	text-align: center;
+}

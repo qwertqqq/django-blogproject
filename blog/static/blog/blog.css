@@ -1,0 +1,139 @@
+li{
+	list-style-type: none;
+}
+
+ul.blog_types{
+  list-style-type:none; 
+}
+div.blog:not(:last-child){
+	margin-bottom: 2em;
+	padding-bottom: 1em;
+	border-bottom: 1px solid #e3e3e6;
+}
+
+div.blog h3{
+	margin-top: 0.5em;
+}
+
+.blog-title{
+	text-indent: center;
+	font-size: 22px;
+	font-weight: bold;
+	position:absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+div.blog-info{
+	margin-top: 22px;
+	padding-top: 16px;
+	text-align: center;
+	/*border: 1px solid red;*/
+}
+p.soujin{
+	text-indent: 2em /* 首行缩进两个字符*/
+}
+div.panel-footer{
+	text-align: center;
+	color: #ef0fb0;
+	font-weight: bold;
+}
+
+a.font-color{
+	color: 000000!important;
+}
+
+ul.blog-info-description{
+	list-style-type: none;
+	text-align: center;
+}
+
+ul.blog-info-description li{
+	display:inline-block;
+	margin-right: 2em;
+}
+
+h3.blog-info-description-title{
+	text-align: center;
+}
+div.soujin{
+	text-indent: 2em /* 首行缩进两个字符*/
+}
+
+div.pagination{
+	text-align: center;
+	width: 100%;
+	margin-top: 0px;
+	margin-bottom: 80px;
+	/*border: 1px solid #00ff00;*/
+}
+
+
+/*blog_detail*/
+div.blog-more{
+
+	margin-top: 6px;
+	margin-bottom:  16px;
+}
+div.blog-left{
+	padding-top: 6px;
+	float: left;
+}
+div.blog-right{
+	float:right;
+	padding-top: 6px;
+}
+
+span.icon-color{
+	color:DarkGreen;
+}
+
+div.comment-area{
+	margin-top: 2em;
+}
+h3.comment-area-title{
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 0.4em;
+}
+
+div.django-ckeditor-widget{
+	width: 100%;
+}
+
+div.comment{
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 0.5em;
+	padding-bottom: 0.5em;	
+}
+
+div.reply{
+	margin-left: 2em;
+}
+
+div#reply_content_container{
+	display: block;
+	border: 1px solid #d1d1d1;
+	border-bottom: none;
+	overflow: hidden;
+	padding:1em 1em 0.5em;
+}
+p#reply_title{
+	border-bottom: 1px dashed #ccc;
+	padding-bottom: 0.5em;
+}
+
+div.like-position{
+	position: absolute;
+	margin: 0 auto;
+}
+#content-top{
+	border-top: 26px;
+}
+
+.navbar-fixed-bottom {
+    height: 100px;
+}
+.row {
+    margin-top: 9%;
+}
+
